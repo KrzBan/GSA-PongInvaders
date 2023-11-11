@@ -12,7 +12,7 @@ namespace gsa {
 
         // Load a sprite to display
         sf::Texture texture;
-        if (!texture.loadFromFile("assets/cute_image.png"))
+        if (!texture.loadFromFile("assets/images/cute_image.png"))
             return;
         sf::Sprite sprite(texture);
 

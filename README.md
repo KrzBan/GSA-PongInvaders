@@ -21,8 +21,6 @@ git submodule update --init
 2. Go to "vcpkg" directory and run "bootstrap-vcpkg.bat" (or .sh on Linux)
 
 3. Open Visual Studio with "GSA-PongInvaders" directory as root.
-You will be asked for root CMakeLists.txt. Choose "PongInvaders/CmakeLists.txt"
-TODO: get rid of this point
 
 4. Once open, you can force CMake to run by simply saving any CMakeLists.txt file.
 To do so, open any CMakeLists.txt (preferably root one) and press Ctrl+S.

@@ -3,6 +3,8 @@ add_library(PongInvadersLib)
 target_sources(PongInvadersLib PUBLIC
 	"Game.hpp" "Game.cpp")
 
+set_property(TARGET PongInvadersLib PROPERTY CXX_STANDARD 20)
+
 find_package(SFML COMPONENTS system window graphics audio CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 
