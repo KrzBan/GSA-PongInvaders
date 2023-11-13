@@ -1,6 +1,22 @@
 # GSA-PongInvaders
 GSA project, Pong x Invaders Fusion.
 
+Pong
+Game Clocks (timeSinceStart, deltaTime)
+Player Input, Second Player Input
+AI movement
+Ball physics (World bounce, Paddle bounce)
+Music, game sound effects - X
+Main Menu ( Play/Quit, Solo/2Player )
+Score ( file I/O )
+
+Scene abstraction
+Camera abstraction
+Game Fail State
+Intro 
+
+
+
 # Prerequisites
 - git
 - Visual Studio 22 with C++ Package Installed

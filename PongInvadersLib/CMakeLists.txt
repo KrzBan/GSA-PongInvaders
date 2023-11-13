@@ -1,7 +1,7 @@
 add_library(PongInvadersLib)
 
 target_sources(PongInvadersLib PUBLIC
-	"Game.hpp" "Game.cpp")
+	"Game.hpp" "Game.cpp" )
 
 set_property(TARGET PongInvadersLib PROPERTY CXX_STANDARD 20)
 
