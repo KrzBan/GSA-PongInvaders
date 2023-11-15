@@ -1,4 +1,4 @@
-﻿#include "PongInvaders.h"
+﻿#include "PongInvaders.hpp"
 
 #include <Game.hpp>
 

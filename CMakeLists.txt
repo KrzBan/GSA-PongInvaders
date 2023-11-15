@@ -17,4 +17,7 @@ add_subdirectory(PongInvadersLib)
 add_custom_target(copy_assets
     COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${CMAKE_CURRENT_LIST_DIR}/assets ${CMAKE_BINARY_DIR}/PongInvaders/assets
 )
-add_dependencies(PongInvaders copy_assets)
+add_dependencies(PongInvadersMain copy_assets)
+
+set_property(TARGET PongInvadersMain PROPERTY CXX_STANDARD 20)
+set_property(TARGET PongInvadersLib PROPERTY CXX_STANDARD 20)

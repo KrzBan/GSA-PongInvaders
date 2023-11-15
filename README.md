@@ -4,8 +4,8 @@ GSA project, Pong x Invaders Fusion.
 Pong
 Game Clocks (timeSinceStart, deltaTime)
 Player Input, Second Player Input
-AI movement
-Ball physics (World bounce, Paddle bounce)
+AI movement - X
+Ball physics (World bounce, Paddle bounce) - X
 Music, game sound effects - X
 Main Menu ( Play/Quit, Solo/2Player )
 Score ( file I/O )
