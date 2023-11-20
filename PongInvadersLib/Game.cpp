@@ -7,22 +7,35 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
+#include <spdlog/spdlog.h>
+
 #include "Time.hpp"
+#include "Utils.hpp"
 
 namespace gsa {
 
 	void Game::Play() {
 
-        constexpr uint32_t defaultWidth = 800;
-        constexpr uint32_t defaultheight = 600;
-        constexpr const char*  defaultWindowName = "SFML window";
+        constexpr uint32_t defaultWidth = 1600;
+        constexpr uint32_t defaultheight = 900;
+        constexpr const char*  defaultWindowName = "PongInvaders";
 
-        sf::RenderWindow window(sf::VideoMode(defaultWidth, defaultheight), defaultWindowName);
+        sf::RenderWindow window(sf::VideoMode(defaultWidth, defaultheight), defaultWindowName, sf::Style::Titlebar | sf::Style::Close);
         window.setFramerateLimit(60);
 
+        sf::View view{{0.0f, 0.0f}, { 1920.0f, 1080.0f }};
+        window.setView(view);
+
+        // Background Reference Grid
+        sf::Texture bgGridTex{};
+        Utils::LoadTextureFromFile(bgGridTex, "assets/images/BG-Grid.png");
+        sf::Sprite bgGridSprite{bgGridTex};
+        auto bgGridBounds = bgGridSprite.getLocalBounds();
+        bgGridSprite.setPosition(-bgGridBounds.width / 2, -bgGridBounds.height / 2);
+        bgGridSprite.setColor({ 255, 255, 255, 128 });
+
         sf::Texture texture;
-        if (!texture.loadFromFile("assets/images/cute_image.png"))
-            return;
+        Utils::LoadTextureFromFile(texture, "assets/images/cute_image.png");
         sf::Sprite sprite(texture);
 
         // Create a graphical text to display
@@ -32,14 +45,11 @@ namespace gsa {
         sf::Text text("Hello SFML", font, 50);
         text.setColor(sf::Color::Black);
 
-        // sf::View view();
-        // window.setView();
-
         while (window.isOpen()) {
             // Update delta time
             Time::UpdateFrameTime();
 
-            std::cout << std::format("delta:{}, real: {}", Time::DeltaTime(), Time::RealTime()) << '\n';
+            spdlog::info("delta:{}, real: {}", Time::DeltaTime(), Time::RealTime());
             
             // Process events
             sf::Event event;
@@ -58,6 +68,8 @@ namespace gsa {
             // Clear screen
             window.clear();
 
+            window.draw(bgGridSprite);
+
             window.draw(sprite);
             window.draw(text);
 
@@ -66,7 +78,6 @@ namespace gsa {
         }
 
         return;
-
 	}
 
 }

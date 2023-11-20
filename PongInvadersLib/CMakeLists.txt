@@ -4,6 +4,7 @@ target_sources(PongInvadersLib PUBLIC
 	"Game.hpp" "Game.cpp" 
 
 	"Time.hpp" "Time.cpp" 
+	"Utils.hpp"
 )
 
 find_package(SFML COMPONENTS system window graphics audio CONFIG REQUIRED)
