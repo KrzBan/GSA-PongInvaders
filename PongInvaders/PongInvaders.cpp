@@ -7,6 +7,5 @@ int main()
 	gsa::Game game;
 	game.Play();
 
-
 	return 0;
 }

@@ -9,6 +9,9 @@
 
 #include <spdlog/spdlog.h>
 
+#include "GameObject.hpp"
+#include "GameObjects/BackgroundRef.hpp"
+
 #include "Time.hpp"
 #include "Utils.hpp"
 
@@ -27,12 +30,7 @@ namespace gsa {
         window.setView(view);
 
         // Background Reference Grid
-        sf::Texture bgGridTex{};
-        Utils::LoadTextureFromFile(bgGridTex, "assets/images/BG-Grid.png");
-        sf::Sprite bgGridSprite{bgGridTex};
-        auto bgGridBounds = bgGridSprite.getLocalBounds();
-        bgGridSprite.setPosition(-bgGridBounds.width / 2, -bgGridBounds.height / 2);
-        bgGridSprite.setColor({ 255, 255, 255, 128 });
+        BackgroundRef backgroundRef;
 
         sf::Texture texture;
         Utils::LoadTextureFromFile(texture, "assets/images/cute_image.png");
@@ -49,7 +47,7 @@ namespace gsa {
             // Update delta time
             Time::UpdateFrameTime();
 
-            spdlog::info("delta:{}, real: {}", Time::DeltaTime(), Time::RealTime());
+            //spdlog::info("delta: {}, real: {}", Time::DeltaTime(), Time::RealTime());
             
             // Process events
             sf::Event event;
@@ -68,7 +66,7 @@ namespace gsa {
             // Clear screen
             window.clear();
 
-            window.draw(bgGridSprite);
+            backgroundRef.Render(window);
 
             window.draw(sprite);
             window.draw(text);

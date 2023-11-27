@@ -2,8 +2,11 @@ add_library(PongInvadersLib)
 
 target_sources(PongInvadersLib PUBLIC
 	"Game.hpp" "Game.cpp" 
+	"GameObject.hpp"
+	"GameObjects/BackgroundRef.hpp"
 
 	"Time.hpp" "Time.cpp" 
+
 	"Utils.hpp"
 )
 
